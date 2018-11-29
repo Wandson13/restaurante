@@ -5,8 +5,8 @@
  */
 package view;
 
-import model.bean.cardapio;
-import model.dao.cardapioDAO;
+import model.bean.prato;
+import model.dao.pratoDAO;
 
 /**
  *
@@ -19,9 +19,9 @@ public class UFPedido extends javax.swing.JFrame {
      */
     public UFPedido() {
         initComponents();
-        cardapioDAO dao = new cardapioDAO();
+        pratoDAO dao = new pratoDAO();
         
-        for(cardapio p: dao.read()){
+        for(prato p: dao.read()){
             jComboBox1.addItem(p);
     }
 }
@@ -79,6 +79,7 @@ public class UFPedido extends javax.swing.JFrame {
         jTextField2 = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jTextField3 = new javax.swing.JTextField();
+        jButton7 = new javax.swing.JButton();
 
         jFrame1.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -289,6 +290,13 @@ public class UFPedido extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel9.setText("Quantidade");
 
+        jButton7.setText("Adicionar ao Carrinho");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -325,16 +333,18 @@ public class UFPedido extends javax.swing.JFrame {
                             .addComponent(jLabel3)
                             .addComponent(jLabel9)
                             .addComponent(jTextField3))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jSeparator3, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSeparator3, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel8)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField2))
-                            .addComponent(jSeparator7))
-                        .addContainerGap())))
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTextField2))
+                    .addComponent(jSeparator7)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(92, 92, 92)
+                        .addComponent(jButton7)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -363,6 +373,8 @@ public class UFPedido extends javax.swing.JFrame {
                         .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -370,7 +382,7 @@ public class UFPedido extends javax.swing.JFrame {
                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2)
@@ -395,6 +407,10 @@ public class UFPedido extends javax.swing.JFrame {
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+
+    }//GEN-LAST:event_jButton7ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -438,6 +454,7 @@ public class UFPedido extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
     private javax.swing.JCheckBox jCheckBox10;
     private javax.swing.JCheckBox jCheckBox11;
     private javax.swing.JCheckBox jCheckBox12;

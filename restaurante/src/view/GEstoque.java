@@ -57,7 +57,6 @@ public class GEstoque extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
 
@@ -105,9 +104,6 @@ public class GEstoque extends javax.swing.JFrame {
             }
         });
         jMenu1.add(jMenuItem1);
-
-        jMenuItem2.setText("jMenuItem2");
-        jMenu1.add(jMenuItem2);
 
         jMenuBar1.add(jMenu1);
 
@@ -211,7 +207,6 @@ public class GEstoque extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;

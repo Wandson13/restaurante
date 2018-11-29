@@ -22,10 +22,10 @@ public class UVDados extends javax.swing.JFrame {
     public void readId(){
         jTextField1.setText(pu.getNomeu());
         jTextField2.setText(pu.getLogin());
-        jTextField3.setText(pu.getSenha());
-        jTextField4.setText(pu.getCpf());   
-        jTextField5.setText(pu.getTelefone());
-        jTextField6.setText(pu.getEndereco());
+        jTextField4.setText(pu.getSenha());
+        jTextField5.setText(pu.getCpf());   
+        jTextField6.setText(pu.getTelefone());
+        jTextField3.setText(pu.getEndereco());
         jTextField7.setText(pu.getTipo());
     }
 
