@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 28-Nov-2018 às 20:40
+-- Generation Time: 29-Nov-2018 às 16:04
 -- Versão do servidor: 10.1.36-MariaDB
--- versão do PHP: 7.2.11
+-- versão do PHP: 7.2.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -70,7 +70,31 @@ INSERT INTO `aux` (`cod`, `tipo`, `iduser`) VALUES
 (29, 'Administrador', 1),
 (30, 'Administrador', 1),
 (31, 'Administrador', 1),
-(32, 'Administrador', 1);
+(32, 'Administrador', 1),
+(33, 'Administrador', 1),
+(34, 'Administrador', 1),
+(35, 'Administrador', 1),
+(36, 'Administrador', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `bebida`
+--
+
+CREATE TABLE `bebida` (
+  `id` int(11) NOT NULL,
+  `nome` varchar(255) NOT NULL,
+  `preco` float NOT NULL,
+  `categoria` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `bebida`
+--
+
+INSERT INTO `bebida` (`id`, `nome`, `preco`, `categoria`) VALUES
+(1, 'coca-cola', 8, 'Bebida');
 
 -- --------------------------------------------------------
 
@@ -162,6 +186,12 @@ ALTER TABLE `aux`
   ADD PRIMARY KEY (`cod`);
 
 --
+-- Indexes for table `bebida`
+--
+ALTER TABLE `bebida`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `cardapio`
 --
 ALTER TABLE `cardapio`
@@ -193,7 +223,13 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT for table `aux`
 --
 ALTER TABLE `aux`
-  MODIFY `cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+
+--
+-- AUTO_INCREMENT for table `bebida`
+--
+ALTER TABLE `bebida`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `cardapio`
