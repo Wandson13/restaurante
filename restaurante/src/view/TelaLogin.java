@@ -6,6 +6,7 @@
 package view;
 
 import javax.swing.JOptionPane;
+import model.bean.usuario;
 import model.dao.auxiliarDAO;
 import model.dao.usuarioDAO;
 
@@ -119,28 +120,26 @@ public class TelaLogin extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addComponent(lrest, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(luser)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
+                        .addComponent(txtLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(lsenha)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(blogar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(bsair, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(blogar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(bsair, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
-            .addComponent(lrest, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -156,11 +155,10 @@ public class TelaLogin extends javax.swing.JFrame {
                     .addComponent(lsenha))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(0, 0, Short.MAX_VALUE)
-                            .addComponent(bsair)))
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(bsair))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(blogar)
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -174,29 +172,35 @@ public class TelaLogin extends javax.swing.JFrame {
     private void blogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_blogarActionPerformed
         usuarioDAO dao = new usuarioDAO();
         if(dao.checkLogin(txtLogin.getText(), txtSenha.getText())){
+            usuarioDAO p = new usuarioDAO();
+            usuario pu = p.readForId();
             auxiliarDAO auxiliar = new auxiliarDAO();
             int b = auxiliar.read();
             
             switch(b){
                 case 0:
                     MenuADM adm = new MenuADM();
-                    adm.setVisible(true);
-                    dispose();
+                    adm.setVisible(true);  
+                    dispose(); 
+                    JOptionPane.showMessageDialog(null, "Bem vindo(a) "+pu.getNomeu()+"!");
                     break;
                 case 1:
                     MenuUser user = new MenuUser();
                     user.setVisible(true);
                     dispose();
+                    JOptionPane.showMessageDialog(null, "Bem vindo(a) "+pu.getNomeu()+"!");
                     break;
                 case 2:
                     MenuFuncCaix caixa = new MenuFuncCaix();
                     caixa.setVisible(true);
                     dispose();
+                    JOptionPane.showMessageDialog(null, "Bem vindo(a) "+pu.getNomeu()+"!");
                     break;
                 case 3:
                     MenuFuncEntre entregador = new MenuFuncEntre();
                     entregador.setVisible(true);
                     dispose();
+                    JOptionPane.showMessageDialog(null, "Bem vindo(a) "+pu.getNomeu()+"!");
                     break;
                 default:
                     JOptionPane.showMessageDialog(null, "Erro 404!");

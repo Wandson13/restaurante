@@ -104,7 +104,7 @@ public class bebidaDAO {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(cardapioDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(pratoDAO.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }

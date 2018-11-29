@@ -7,8 +7,8 @@ package view;
 
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
-import model.bean.cardapio;
-import model.dao.cardapioDAO;
+import model.bean.prato;
+import model.dao.pratoDAO;
 
 /**
  *
@@ -187,10 +187,10 @@ public class UECardapio extends javax.swing.JFrame {
 
     public void readJTable() {
         DefaultTableModel modelo = (DefaultTableModel) jTable2.getModel();
-        cardapioDAO pdao = new cardapioDAO();
+        pratoDAO pdao = new pratoDAO();
         modelo.setNumRows(0);
 
-        for (cardapio p : pdao.read()) {
+        for (prato p : pdao.read()) {
             modelo.addRow(new Object[]{
                 p.getNome(),
                 p.getPreco(),
@@ -202,9 +202,9 @@ public class UECardapio extends javax.swing.JFrame {
         
         DefaultTableModel modelo = (DefaultTableModel) jTable2.getModel();
         modelo.setNumRows(0);
-        cardapioDAO pdao = new cardapioDAO();
+        pratoDAO pdao = new pratoDAO();
 
-        for (cardapio p : pdao.readNome(nome)) {
+        for (prato p : pdao.readNome(nome)) {
 
             modelo.addRow(new Object[]{
                 p.getNome(),

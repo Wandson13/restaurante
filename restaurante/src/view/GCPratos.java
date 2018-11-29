@@ -8,8 +8,8 @@ package view;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
-import model.dao.cardapioDAO;
-import model.bean.cardapio;
+import model.dao.pratoDAO;
+import model.bean.prato;
 
 /**
  *
@@ -209,10 +209,10 @@ public class GCPratos extends javax.swing.JFrame {
 
     public void readJTable() {
         DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
-        cardapioDAO pdao = new cardapioDAO();
+        pratoDAO pdao = new pratoDAO();
         modelo.setNumRows(0);
 
-        for (cardapio p : pdao.read()) {
+        for (prato p : pdao.read()) {
             modelo.addRow(new Object[]{
                 p.getId(),
                 p.getNome(),
@@ -238,12 +238,12 @@ public class GCPratos extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        cardapio p = new cardapio();
-        cardapioDAO dao = new cardapioDAO();
+        prato p = new prato();
+        pratoDAO dao = new pratoDAO();
         String combo = (String) jComboBox1.getSelectedItem();
         
         p.setNome(jTextField1.getText());
-        p.setPreco(jTextField2.getText());
+        p.setPreco(Double.parseDouble(jTextField2.getText()));
         p.setCategoria(combo);
         
         dao.create(p);
@@ -257,8 +257,8 @@ public class GCPratos extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         if (jTable1.getSelectedRow() != -1) {
 
-            cardapio p = new cardapio();
-            cardapioDAO dao = new cardapioDAO();
+            prato p = new prato();
+            pratoDAO dao = new pratoDAO();
 
             p.setId((int) jTable1.getValueAt(jTable1.getSelectedRow(), 0));      
             dao.delete(p);
@@ -273,11 +273,11 @@ public class GCPratos extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         if (jTable1.getSelectedRow() != -1) {
 
-            cardapio p = new cardapio();
-            cardapioDAO dao = new cardapioDAO();
+            prato p = new prato();
+            pratoDAO dao = new pratoDAO();
 
             p.setNome(jTextField1.getText());
-            p.setPreco(jTextField2.getText());
+            p.setPreco(Double.parseDouble(jTextField2.getText()));
             p.setCategoria((String) jComboBox1.getSelectedItem());
             p.setId((int) jTable1.getValueAt(jTable1.getSelectedRow(), 0));
             dao.update(p);

@@ -1,8 +1,9 @@
 package model.bean;
 
-public class cardapio {
-    private String nome, preco, categoria;
+public class prato {
+    private String nome, categoria;
     private int id;
+    private double preco;
 
     public String getNome() {
         return nome;
@@ -12,11 +13,11 @@ public class cardapio {
         this.nome = nome;
     }
 
-    public String getPreco() {
+    public double getPreco() {
         return preco;
     }
 
-    public void setPreco(String preco) {
+    public void setPreco(double preco) {
         this.preco = preco;
     }
 

@@ -15,24 +15,24 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import model.bean.cardapio;
+import model.bean.prato;
 import model.bean.usuario;
 
 /**
  *
  * @author IFMA
  */
-public class cardapioDAO {
-    public void create(cardapio p) {
+public class pratoDAO {
+    public void create(prato p) {
         
         Connection con = ConnectionFactory.getConnection();
         
         PreparedStatement stmt = null;
 
         try {
-            stmt = con.prepareStatement("INSERT INTO cardapio (nome,preco,categoria)VALUES(?,?,?)");
+            stmt = con.prepareStatement("INSERT INTO prato (nome,preco,categoria)VALUES(?,?,?)");
             stmt.setString(1, p.getNome());
-            stmt.setString(2, p.getPreco());
+            stmt.setDouble(2, p.getPreco());
             stmt.setString(3, p.getCategoria());
 
             stmt.executeUpdate();
@@ -45,26 +45,26 @@ public class cardapioDAO {
         }
 
     }
-    public List<cardapio> read() {
+    public List<prato> read() {
 
         Connection con = ConnectionFactory.getConnection();
         
         PreparedStatement stmt = null;
         ResultSet rs = null;
 
-        List<cardapio> cardapios = new ArrayList<>();
+        List<prato> cardapios = new ArrayList<>();
 
         try {
-            stmt = con.prepareStatement("SELECT * FROM cardapio");
+            stmt = con.prepareStatement("SELECT * FROM prato");
             rs = stmt.executeQuery();
 
             while (rs.next()) {
 
-                cardapio cardapio = new cardapio();
+                prato cardapio = new prato();
 
                 cardapio.setId(rs.getInt("id"));
                 cardapio.setNome(rs.getString("nome"));
-                cardapio.setPreco(rs.getString("preco"));
+                cardapio.setPreco(rs.getDouble("preco"));
                 cardapio.setCategoria(rs.getString("categoria"));
                 cardapios.add(cardapio);
             }
@@ -78,34 +78,34 @@ public class cardapioDAO {
         return cardapios;
 
     }
-    public List<cardapio> readNome(String nome) {
+    public List<prato> readNome(String nome) {
 
         Connection con = ConnectionFactory.getConnection();
         
         PreparedStatement stmt = null;
         ResultSet rs = null;
 
-        List<cardapio> cardapios = new ArrayList<>();
+        List<prato> cardapios = new ArrayList<>();
 
         try {
-            stmt = con.prepareStatement("SELECT * FROM cardapio WHERE nome LIKE ?");
+            stmt = con.prepareStatement("SELECT * FROM prato WHERE nome LIKE ?");
             stmt.setString(1, "%"+nome+"%");
             
             rs = stmt.executeQuery();
 
             while (rs.next()) {
 
-                cardapio cardapio = new cardapio();
+                prato cardapio = new prato();
 
                 cardapio.setId(rs.getInt("id"));
                 cardapio.setNome(rs.getString("nome"));
-                cardapio.setPreco(rs.getString("preco"));
+                cardapio.setPreco(rs.getDouble("preco"));
                 cardapio.setCategoria(rs.getString("categoria"));
                 cardapios.add(cardapio);
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(cardapioDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(pratoDAO.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
@@ -114,16 +114,16 @@ public class cardapioDAO {
 
     }
     
-    public void update(cardapio p) {
+    public void update(prato p) {
 
         Connection con = ConnectionFactory.getConnection();
         
         PreparedStatement stmt = null;
 
         try {
-            stmt = con.prepareStatement("UPDATE cardapio SET nome = ? ,preco = ?,categoria = ? WHERE id = ?");
+            stmt = con.prepareStatement("UPDATE prato SET nome = ? ,preco = ?,categoria = ? WHERE id = ?");
             stmt.setString(1, p.getNome());
-            stmt.setString(2, p.getPreco());
+            stmt.setDouble(2, p.getPreco());
             stmt.setString(3, p.getCategoria());
             stmt.setInt(4, p.getId());
 
@@ -137,14 +137,14 @@ public class cardapioDAO {
         }
 
     }
-    public void delete(cardapio p) {
+    public void delete(prato p) {
 
         Connection con = ConnectionFactory.getConnection();
         
         PreparedStatement stmt = null;
 
         try {
-            stmt = con.prepareStatement("DELETE FROM cardapio WHERE id = ?");
+            stmt = con.prepareStatement("DELETE FROM prato WHERE id = ?");
             stmt.setInt(1, p.getId());      
 
             stmt.executeUpdate();
