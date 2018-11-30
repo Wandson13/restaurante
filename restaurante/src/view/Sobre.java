@@ -40,7 +40,7 @@ public class Sobre extends javax.swing.JFrame {
         jLabel2.setText("RESTAURANTE - SOBRE");
 
         jProgressBar1.setToolTipText("Porcentagem de construção do programa!");
-        jProgressBar1.setValue(44);
+        jProgressBar1.setValue(53);
         jProgressBar1.setStringPainted(true);
 
         jLabel3.setText("Progresso de construção:");
