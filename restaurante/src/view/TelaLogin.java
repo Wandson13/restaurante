@@ -191,12 +191,6 @@ public class TelaLogin extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Bem vindo(a) "+pu.getNomeu()+"!");
                     break;
                 case 2:
-                    MenuFuncCaix caixa = new MenuFuncCaix();
-                    caixa.setVisible(true);
-                    dispose();
-                    JOptionPane.showMessageDialog(null, "Bem vindo(a) "+pu.getNomeu()+"!");
-                    break;
-                case 3:
                     MenuFuncEntre entregador = new MenuFuncEntre();
                     entregador.setVisible(true);
                     dispose();

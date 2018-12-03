@@ -5,6 +5,10 @@
  */
 package view;
 
+import javax.swing.JOptionPane;
+import model.bean.usuario;
+import model.dao.usuarioDAO;
+
 /**
  *
  * @author IFMA
@@ -41,6 +45,7 @@ public class MenuUser extends javax.swing.JFrame {
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
+        jMenuItem6 = new javax.swing.JMenuItem();
 
         jButton4.setText("Sair");
 
@@ -124,6 +129,15 @@ public class MenuUser extends javax.swing.JFrame {
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Ajuda");
+
+        jMenuItem6.setText("Sobre");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem6);
+
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
@@ -162,7 +176,12 @@ public class MenuUser extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        usuarioDAO p = new usuarioDAO();
+        usuario pu = p.readForId();
+        int sair = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja sair "+pu.getNomeu()+"?", "Atenção", JOptionPane.YES_NO_OPTION);
+        if(sair==JOptionPane.YES_OPTION){
         System.exit(0);
+        }
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -202,14 +221,29 @@ public class MenuUser extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        usuarioDAO p = new usuarioDAO();
+        usuario pu = p.readForId();
+        int sair = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja sair da sua conta "+pu.getNomeu()+"?", "Atenção", JOptionPane.YES_NO_OPTION);
+        if(sair==JOptionPane.YES_OPTION){
         TelaLogin obj = new TelaLogin();
         obj.setVisible(true);
         dispose();
+        }
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        usuarioDAO p = new usuarioDAO();
+        usuario pu = p.readForId();
+        int sair = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja sair "+pu.getNomeu()+"?", "Atenção", JOptionPane.YES_NO_OPTION);
+        if(sair==JOptionPane.YES_OPTION){
         System.exit(0);
+        }
     }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        Sobre obj = new Sobre();
+        obj.setVisible(true);
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -260,6 +294,7 @@ public class MenuUser extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     // End of variables declaration//GEN-END:variables
 }

@@ -22,7 +22,7 @@ public class UVDados extends javax.swing.JFrame {
     public void readId(){
         jTextField1.setText(pu.getNomeu());
         jTextField2.setText(pu.getLogin());
-        jTextField4.setText(pu.getSenha());
+        jPasswordField1.setText(pu.getSenha());
         jTextField5.setText(pu.getCpf());   
         jTextField6.setText(pu.getTelefone());
         jTextField3.setText(pu.getEndereco());
@@ -48,12 +48,12 @@ public class UVDados extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
         jTextField5 = new javax.swing.JTextField();
         jTextField6 = new javax.swing.JTextField();
         jTextField7 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
+        jPasswordField1 = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Dados Cadastrados");
@@ -89,8 +89,6 @@ public class UVDados extends javax.swing.JFrame {
             }
         });
 
-        jTextField4.setEditable(false);
-
         jTextField5.setEditable(false);
 
         jTextField6.setEditable(false);
@@ -110,6 +108,8 @@ public class UVDados extends javax.swing.JFrame {
                 jTextField1ActionPerformed(evt);
             }
         });
+
+        jPasswordField1.setEditable(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -135,10 +135,10 @@ public class UVDados extends javax.swing.JFrame {
                                 .addContainerGap())
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jPasswordField1, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jTextField7, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jTextField3, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField2)
-                                    .addComponent(jTextField4))
+                                    .addComponent(jTextField2))
                                 .addGap(10, 10, 10))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel2)
@@ -172,7 +172,7 @@ public class UVDados extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -261,10 +261,10 @@ public class UVDados extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;

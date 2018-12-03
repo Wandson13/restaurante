@@ -73,7 +73,7 @@ public class GPCriar extends javax.swing.JFrame {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "", "Caixa", "Entregador" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Entregador" }));
 
         jButton1.setText("Voltar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {

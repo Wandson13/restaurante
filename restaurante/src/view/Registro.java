@@ -76,7 +76,7 @@ public class Registro extends javax.swing.JFrame {
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Usuario Comum" }));
         jComboBox1.setEnabled(false);
 
-        jLabel8.setIcon(new javax.swing.ImageIcon("C:\\Users\\Pichau\\Downloads\\Registre-se-300x188.png")); // NOI18N
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restaurante/imagem/Registre-se-300x188.png"))); // NOI18N
 
         jButton1.setText("Registrar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {

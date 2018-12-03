@@ -107,7 +107,7 @@ public class GUsuario extends javax.swing.JFrame {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "", "Caixa", "Entregador", "Usuario Comum" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "", "Entregador", "Usuario Comum" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);

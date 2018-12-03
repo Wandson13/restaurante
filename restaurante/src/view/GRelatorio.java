@@ -5,6 +5,10 @@
  */
 package view;
 
+import javax.swing.JOptionPane;
+import model.bean.estoque;
+import model.dao.estoqueDAO;
+
 /**
  *
  * @author IFMA
@@ -41,12 +45,32 @@ public class GRelatorio extends javax.swing.JFrame {
         setTitle("Gestão de Relatorio");
 
         jButton1.setText("Emitir Vendas");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Emitir Saldo");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Emitir Gasto");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("Emitir Relatorio Completo");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jMenu1.setText("Programa");
 
@@ -118,6 +142,32 @@ public class GRelatorio extends javax.swing.JFrame {
         obj.setVisible(true);
         dispose();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        estoque p = new estoque();
+        estoqueDAO dao = new estoqueDAO();
+        double gasto = p.getValor();
+        JOptionPane.showMessageDialog(null, "O seu gasto é de: "+gasto);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        double saldo = 0;
+        JOptionPane.showMessageDialog(null, "O seu saldo é de: "+saldo);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        estoque p = new estoque();
+        estoqueDAO dao = new estoqueDAO();
+        double gasto = p.getValor();
+        double saldo = p.getValor()-1;
+        double vendas = 0;
+        JOptionPane.showMessageDialog(null, "O seu gasto é de: "+gasto+" O seu saldo é de: "+saldo+" A suas vendas é de: "+vendas);
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        double vendas = 0;
+        JOptionPane.showMessageDialog(null, "A suas vendas é de:: "+vendas);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

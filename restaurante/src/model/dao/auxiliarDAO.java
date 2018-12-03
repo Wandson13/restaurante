@@ -37,7 +37,7 @@ public class auxiliarDAO {
         ResultSet rs = null;
 
         String i=null;
-        int o=4;
+        int o=3;
 
         try {
             stmt = con.prepareStatement("SELECT * FROM aux ORDER BY cod DESC LIMIT 1");
@@ -51,12 +51,9 @@ public class auxiliarDAO {
                 if(i.equals("Usuario Comum")){
                     o=1;
                 }
-                if(i.equals("Caixa")){
-                    o=2;
-                }
                 if(i.equals("Entregador")){
-                    o=3;
-                }
+                    o=2;
+                }  
             }
         } catch (SQLException ex) {
             Logger.getLogger(usuarioDAO.class.getName()).log(Level.SEVERE, null, ex);

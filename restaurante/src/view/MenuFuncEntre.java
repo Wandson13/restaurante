@@ -5,6 +5,10 @@
  */
 package view;
 
+import javax.swing.JOptionPane;
+import model.bean.usuario;
+import model.dao.usuarioDAO;
+
 /**
  *
  * @author IFMA
@@ -36,6 +40,7 @@ public class MenuFuncEntre extends javax.swing.JFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
+        jMenuItem4 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Menu de Funcionario - Entregador");
@@ -85,6 +90,15 @@ public class MenuFuncEntre extends javax.swing.JFrame {
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Ajuda");
+
+        jMenuItem4.setText("Sobre");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem4);
+
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
@@ -115,13 +129,23 @@ public class MenuFuncEntre extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        EGEntregas obj = new EGEntregas (); 
+        usuarioDAO p = new usuarioDAO();
+        usuario pu = p.readForId();
+        int sair = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja sair da sua conta "+pu.getNomeu()+"?", "Atenção", JOptionPane.YES_NO_OPTION);
+        if(sair==JOptionPane.YES_OPTION){
+        TelaLogin obj = new TelaLogin();
         obj.setVisible(true);
-        dispose ();
+        dispose();
+        }
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        usuarioDAO p = new usuarioDAO();
+        usuario pu = p.readForId();
+        int sair = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja sair "+pu.getNomeu()+"?", "Atenção", JOptionPane.YES_NO_OPTION);
+        if(sair==JOptionPane.YES_OPTION){
         System.exit(0);
+        }
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
@@ -131,7 +155,12 @@ public class MenuFuncEntre extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        System.exit (0);
+        usuarioDAO p = new usuarioDAO();
+        usuario pu = p.readForId();
+        int sair = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja sair "+pu.getNomeu()+"?", "Atenção", JOptionPane.YES_NO_OPTION);
+        if(sair==JOptionPane.YES_OPTION){
+        System.exit(0);
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -139,6 +168,11 @@ public class MenuFuncEntre extends javax.swing.JFrame {
         obj.setVisible(true);
         dispose ();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        Sobre obj = new Sobre();
+        obj.setVisible(true);
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -185,6 +219,7 @@ public class MenuFuncEntre extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     // End of variables declaration//GEN-END:variables
 }
