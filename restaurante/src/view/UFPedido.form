@@ -467,7 +467,11 @@
     <Component class="javax.swing.JComboBox" name="jComboBox1">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="0"/>
+          <StringArray count="3">
+            <StringItem index="0" value="Pizza P"/>
+            <StringItem index="1" value="Pizza G"/>
+            <StringItem index="2" value="Pizza GG"/>
+          </StringArray>
         </Property>
       </Properties>
       <AuxValues>
@@ -520,7 +524,11 @@
     <Component class="javax.swing.JComboBox" name="jComboBox2">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="0"/>
+          <StringArray count="3">
+            <StringItem index="0" value="Coca-Cola"/>
+            <StringItem index="1" value="Fanta"/>
+            <StringItem index="2" value="Itaipava"/>
+          </StringArray>
         </Property>
       </Properties>
       <AuxValues>

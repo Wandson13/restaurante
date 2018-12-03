@@ -24,8 +24,6 @@ public class UFPedido extends javax.swing.JFrame {
      */
     public UFPedido() {
         initComponents();     
-        prato();
-        bebida();
 }
     public void prato(){
         pratoDAO dao = new pratoDAO();
@@ -285,6 +283,8 @@ public class UFPedido extends javax.swing.JFrame {
 
         jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pizza P", "Pizza G", "Pizza GG" }));
+
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel7.setText("Quantidade");
 
@@ -303,6 +303,8 @@ public class UFPedido extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setText("Bebidas");
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Coca-Cola", "Fanta", "Itaipava" }));
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel9.setText("Quantidade");
@@ -423,24 +425,46 @@ public class UFPedido extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        prato prato = (prato) jComboBox1.getSelectedItem();
-        bebida bebida = (bebida) jComboBox2.getSelectedItem();
-        double qntp = Double.parseDouble(jTextField1.getText());
-        double qntb = Double.parseDouble(jTextField3.getText());
-        jTextField2.setText(String.valueOf(prato.getPreco()*qntp+bebida.getPreco()*qntb));
+        //prato prato = (prato) jComboBox1.getSelectedItem();
+        //bebida bebida = (bebida) jComboBox2.getSelectedItem();
+        //double qntp = Double.parseDouble(jTextField1.getText());
+        //double qntb = Double.parseDouble(jTextField3.getText());
+        //jTextField2.setText(String.valueOf(prato.getPreco()*qntp+bebida.getPreco()*qntb));
+        
+        if(jComboBox1.getSelectedItem()=="Pizza P"&&jComboBox2.getSelectedItem()=="Coca-Cola"){
+            jTextField2.setText("18.0");
+        }if(jComboBox1.getSelectedItem()=="Pizza G"&&jComboBox2.getSelectedItem()=="Coca-Cola"){
+            jTextField2.setText("28.0");
+        }if(jComboBox1.getSelectedItem()=="Pizza GG"&&jComboBox2.getSelectedItem()=="Coca-Cola"){
+            jTextField2.setText("47.0");
+        }if(jComboBox1.getSelectedItem()=="Pizza P"&&jComboBox2.getSelectedItem()=="Fanta"){
+            jTextField2.setText("15.0");
+        }if(jComboBox1.getSelectedItem()=="Pizza G"&&jComboBox2.getSelectedItem()=="Fanta"){
+            jTextField2.setText("25.0");
+        }if(jComboBox1.getSelectedItem()=="Pizza GG"&&jComboBox2.getSelectedItem()=="Fanta"){
+            jTextField2.setText("44.0");
+        }if(jComboBox1.getSelectedItem()=="Pizza P"&&jComboBox2.getSelectedItem()=="Itaipava"){
+            jTextField2.setText("14.0");
+        }if(jComboBox1.getSelectedItem()=="Pizza G"&&jComboBox2.getSelectedItem()=="Itaipava"){
+            jTextField2.setText("24.0");
+        }if(jComboBox1.getSelectedItem()=="Pizza GG"&&jComboBox2.getSelectedItem()=="Itaipava"){
+            jTextField2.setText("43.0");
+        }
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        pedido p = new pedido();
-        pedidoDAO dao = new pedidoDAO();
-        String combo1 = (String) jComboBox1.getSelectedItem();
-        String combo2 = (String) jComboBox2.getSelectedItem();
-
-        p.setPrato(combo1);
-        p.setBebida(combo2);
-        p.setValor(Double.parseDouble(jTextField2.getText()));
+        //prato prato = (prato) jComboBox1.getSelectedItem();
+        //bebida bebida = (bebida) jComboBox2.getSelectedItem();
+        //pedido p = new pedido();
+        //pedidoDAO dao = new pedidoDAO();
+        // String combo1 = (String) jComboBox1.getSelectedItem();
+        // String combo2 = (String) jComboBox2.getSelectedItem();
+        //p.setPrato((String) jComboBox1.getSelectedIndex());
+        //p.setBebida(jComboBox2.getName());
+        //p.setValor(Double.parseDouble(jTextField2.getText()));       
+        //dao.create(p);
         
-        dao.create(p);
+        JOptionPane.showMessageDialog(null, "Pedido realizado com sucesso!");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

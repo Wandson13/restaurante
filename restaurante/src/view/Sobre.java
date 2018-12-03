@@ -54,7 +54,7 @@ public class Sobre extends javax.swing.JFrame {
         jLabel2.setText("RESTAURANTE - SOBRE");
 
         jProgressBar1.setToolTipText("Porcentagem de construção do programa!");
-        jProgressBar1.setValue(60);
+        jProgressBar1.setValue(90);
         jProgressBar1.setStringPainted(true);
 
         jLabel3.setText("Progresso de construção:");
@@ -86,7 +86,7 @@ public class Sobre extends javax.swing.JFrame {
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel14.setText("03/12/2018 -");
 
-        jLabel15.setText("Conclusão de fase de implementação;");
+        jLabel15.setText("Conclusão minima da fase de implementação;");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
