@@ -6,8 +6,6 @@
 package view;
 
 import javax.swing.JOptionPane;
-import model.bean.usuario;
-import model.dao.usuarioDAO;
 
 /**
  *
@@ -321,9 +319,7 @@ public class MenuADM extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-        usuarioDAO p = new usuarioDAO();
-        usuario pu = p.readForId();
-        int sair = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja sair "+pu.getNomeu()+"?", "Atenção", JOptionPane.YES_NO_OPTION);
+        int sair = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja sair?", "Atenção", JOptionPane.YES_NO_OPTION);
         if(sair==JOptionPane.YES_OPTION){
         System.exit(0);
         }
@@ -390,20 +386,16 @@ public class MenuADM extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        usuarioDAO p = new usuarioDAO();
-        usuario pu = p.readForId();
-        int sair = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja sair da sua conta "+pu.getNomeu()+"?", "Atenção", JOptionPane.YES_NO_OPTION);
-        if(sair==JOptionPane.YES_OPTION){
-        TelaLogin obj = new TelaLogin();
-        obj.setVisible(true);
-        dispose();
-        }
+       int sair = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja sair da sua conta?", "Atenção", JOptionPane.YES_NO_OPTION);
+       if(sair==JOptionPane.YES_OPTION){
+       TelaLogin obj = new TelaLogin();
+       obj.setVisible(true);
+       dispose();
+       }
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        usuarioDAO p = new usuarioDAO();
-        usuario pu = p.readForId();
-        int sair = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja sair "+pu.getNomeu()+"?", "Atenção", JOptionPane.YES_NO_OPTION);
+        int sair = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja sair?", "Atenção", JOptionPane.YES_NO_OPTION);
         if(sair==JOptionPane.YES_OPTION){
         System.exit(0);
         }

@@ -16,6 +16,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import model.bean.prato;
+import model.bean.usuario;
 
 /**
  *
@@ -51,7 +52,7 @@ public class pratoDAO {
         PreparedStatement stmt = null;
         ResultSet rs = null;
 
-        List<prato> pratos = new ArrayList<>();
+        List<prato> cardapios = new ArrayList<>();
 
         try {
             stmt = con.prepareStatement("SELECT * FROM prato");
@@ -59,13 +60,13 @@ public class pratoDAO {
 
             while (rs.next()) {
 
-                prato prato = new prato();
+                prato cardapio = new prato();
 
-                prato.setId(rs.getInt("id"));
-                prato.setNome(rs.getString("nome"));
-                prato.setPreco(rs.getDouble("preco"));
-                prato.setCategoria(rs.getString("categoria"));
-                pratos.add(prato);
+                cardapio.setId(rs.getInt("id"));
+                cardapio.setNome(rs.getString("nome"));
+                cardapio.setPreco(rs.getDouble("preco"));
+                cardapio.setCategoria(rs.getString("categoria"));
+                cardapios.add(cardapio);
             }
 
         } catch (SQLException ex) {
@@ -74,7 +75,7 @@ public class pratoDAO {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
 
-        return pratos;
+        return cardapios;
 
     }
     public List<prato> readNome(String nome) {
@@ -84,7 +85,7 @@ public class pratoDAO {
         PreparedStatement stmt = null;
         ResultSet rs = null;
 
-        List<prato> pratos = new ArrayList<>();
+        List<prato> cardapios = new ArrayList<>();
 
         try {
             stmt = con.prepareStatement("SELECT * FROM prato WHERE nome LIKE ?");
@@ -94,13 +95,13 @@ public class pratoDAO {
 
             while (rs.next()) {
 
-                prato prato = new prato();
+                prato cardapio = new prato();
 
-                prato.setId(rs.getInt("id"));
-                prato.setNome(rs.getString("nome"));
-                prato.setPreco(rs.getDouble("preco"));
-                prato.setCategoria(rs.getString("categoria"));
-                pratos.add(prato);
+                cardapio.setId(rs.getInt("id"));
+                cardapio.setNome(rs.getString("nome"));
+                cardapio.setPreco(rs.getDouble("preco"));
+                cardapio.setCategoria(rs.getString("categoria"));
+                cardapios.add(cardapio);
             }
 
         } catch (SQLException ex) {
@@ -109,7 +110,7 @@ public class pratoDAO {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
 
-        return pratos;
+        return cardapios;
 
     }
     

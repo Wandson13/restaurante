@@ -1,20 +1,22 @@
 -- phpMyAdmin SQL Dump
--- version 4.2.7.1
--- http://www.phpmyadmin.net
+-- version 4.8.3
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 30-Nov-2018 às 12:50
--- Versão do servidor: 5.6.20
--- PHP Version: 5.5.15
+-- Generation Time: 29-Nov-2018 às 16:04
+-- Versão do servidor: 10.1.36-MariaDB
+-- versão do PHP: 7.2.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `restaurante`
@@ -26,11 +28,11 @@ SET time_zone = "+00:00";
 -- Estrutura da tabela `aux`
 --
 
-CREATE TABLE IF NOT EXISTS `aux` (
-`cod` int(11) NOT NULL,
+CREATE TABLE `aux` (
+  `cod` int(11) NOT NULL,
   `tipo` varchar(255) NOT NULL,
   `iduser` int(11) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=57 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `aux`
@@ -72,27 +74,7 @@ INSERT INTO `aux` (`cod`, `tipo`, `iduser`) VALUES
 (33, 'Administrador', 1),
 (34, 'Administrador', 1),
 (35, 'Administrador', 1),
-(36, 'Administrador', 1),
-(37, 'Administrador', 1),
-(38, 'Administrador', 1),
-(39, 'Administrador', 1),
-(40, 'Administrador', 1),
-(41, 'Administrador', 1),
-(42, 'Usuario Comum', 4),
-(43, 'Administrador', 1),
-(44, 'Usuario Comum', 4),
-(45, 'Usuario Comum', 4),
-(46, 'Usuario Comum', 4),
-(47, 'Usuario Comum', 4),
-(48, 'Usuario Comum', 4),
-(49, 'Usuario Comum', 4),
-(50, 'Usuario Comum', 4),
-(51, 'Administrador', 1),
-(52, 'Administrador', 1),
-(53, 'Entregador', 7),
-(54, 'Administrador', 1),
-(55, 'Administrador', 1),
-(56, 'Caixa', 5);
+(36, 'Administrador', 1);
 
 -- --------------------------------------------------------
 
@@ -100,12 +82,12 @@ INSERT INTO `aux` (`cod`, `tipo`, `iduser`) VALUES
 -- Estrutura da tabela `bebida`
 --
 
-CREATE TABLE IF NOT EXISTS `bebida` (
-`id` int(11) NOT NULL,
+CREATE TABLE `bebida` (
+  `id` int(11) NOT NULL,
   `nome` varchar(255) NOT NULL,
   `preco` float NOT NULL,
   `categoria` varchar(255) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `bebida`
@@ -117,15 +99,35 @@ INSERT INTO `bebida` (`id`, `nome`, `preco`, `categoria`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `cardapio`
+--
+
+CREATE TABLE `cardapio` (
+  `id` int(11) NOT NULL,
+  `nome` varchar(255) NOT NULL,
+  `preco` varchar(50) NOT NULL,
+  `categoria` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `cardapio`
+--
+
+INSERT INTO `cardapio` (`id`, `nome`, `preco`, `categoria`) VALUES
+(2, 'Pizza G', 'R$200', 'Prato');
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `estoque`
 --
 
-CREATE TABLE IF NOT EXISTS `estoque` (
-`id` int(11) NOT NULL,
+CREATE TABLE `estoque` (
+  `id` int(11) NOT NULL,
   `nome` varchar(255) NOT NULL,
   `quantidade` int(11) NOT NULL,
   `valor` float NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `estoque`
@@ -140,31 +142,11 @@ INSERT INTO `estoque` (`id`, `nome`, `quantidade`, `valor`) VALUES
 -- Estrutura da tabela `pedido`
 --
 
-CREATE TABLE IF NOT EXISTS `pedido` (
-`id` int(11) NOT NULL,
+CREATE TABLE `pedido` (
+  `id` int(11) NOT NULL,
   `nentrega` int(255) NOT NULL,
   `produto` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `prato`
---
-
-CREATE TABLE IF NOT EXISTS `prato` (
-`id` int(11) NOT NULL,
-  `nome` varchar(255) NOT NULL,
-  `preco` double NOT NULL,
-  `categoria` varchar(255) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
-
---
--- Extraindo dados da tabela `prato`
---
-
-INSERT INTO `prato` (`id`, `nome`, `preco`, `categoria`) VALUES
-(1, 'Pizza GG', 39, 'Prato');
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -172,8 +154,8 @@ INSERT INTO `prato` (`id`, `nome`, `preco`, `categoria`) VALUES
 -- Estrutura da tabela `usuario`
 --
 
-CREATE TABLE IF NOT EXISTS `usuario` (
-`id` int(11) NOT NULL,
+CREATE TABLE `usuario` (
+  `id` int(11) NOT NULL,
   `login` varchar(225) NOT NULL,
   `senha` varchar(225) NOT NULL,
   `tipo` varchar(15) NOT NULL,
@@ -181,7 +163,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `cpf` varchar(14) NOT NULL,
   `telefone` varchar(15) NOT NULL,
   `endereco` varchar(255) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `usuario`
@@ -191,8 +173,7 @@ INSERT INTO `usuario` (`id`, `login`, `senha`, `tipo`, `nomeu`, `cpf`, `telefone
 (1, 'admin', 'admin', 'Administrador', 'Wandson Batista Aguiar', '617.383.753-66', '+5599991874752', 'Avenida Imperatriz, Planalto'),
 (4, 'user', 'user', 'Usuario Comum', 'Usuario Padrão 01 / Teste', '000.000.000-00', '0000000000', 'Endereço Padrão 01 / Teste'),
 (5, 'caixa', 'caixa', 'Caixa', 'Caixa Padrão 01 / Teste', '111.111.111-11', '1111111111', 'Endereço Padrão 02 / Teste'),
-(6, 'entregador', 'entregador', 'Entregador', 'Entregador Padrão 01 / Teste', '222.222.222-22', '2222222222', 'Endereço Padrão 03 / Teste'),
-(7, 'larissa', 'princesa', 'Entregador', 'Larrisa', '000.001.258-44', '99981475239', 'Rua de Deus');
+(6, 'entregador', 'entregador', 'Entregador', 'Entregador Padrão 01 / Teste', '222.222.222-22', '2222222222', 'Endereço Padrão 03 / Teste');
 
 --
 -- Indexes for dumped tables
@@ -202,37 +183,37 @@ INSERT INTO `usuario` (`id`, `login`, `senha`, `tipo`, `nomeu`, `cpf`, `telefone
 -- Indexes for table `aux`
 --
 ALTER TABLE `aux`
- ADD PRIMARY KEY (`cod`);
+  ADD PRIMARY KEY (`cod`);
 
 --
 -- Indexes for table `bebida`
 --
 ALTER TABLE `bebida`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `cardapio`
+--
+ALTER TABLE `cardapio`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `estoque`
 --
 ALTER TABLE `estoque`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `pedido`
 --
 ALTER TABLE `pedido`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `prato`
---
-ALTER TABLE `prato`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `usuario`
 --
 ALTER TABLE `usuario`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -242,32 +223,39 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT for table `aux`
 --
 ALTER TABLE `aux`
-MODIFY `cod` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=57;
+  MODIFY `cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+
 --
 -- AUTO_INCREMENT for table `bebida`
 --
 ALTER TABLE `bebida`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `cardapio`
+--
+ALTER TABLE `cardapio`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT for table `estoque`
 --
 ALTER TABLE `estoque`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT for table `pedido`
 --
 ALTER TABLE `pedido`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `prato`
---
-ALTER TABLE `prato`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `usuario`
 --
 ALTER TABLE `usuario`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
