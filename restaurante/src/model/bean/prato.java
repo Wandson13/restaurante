@@ -41,5 +41,9 @@ public class prato {
     public String toString() {
         return getNome(); //To change body of generated methods, choose Tools | Templates.
     }
+
+    public String toString(double preco) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

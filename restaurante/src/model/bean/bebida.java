@@ -36,6 +36,11 @@ public class bebida {
     public void setId(int id) {
         this.id = id;
     }
+
+    @Override
+    public String toString() {
+        return getNome(); //To change body of generated methods, choose Tools | Templates.
+    }
     
     
 }
